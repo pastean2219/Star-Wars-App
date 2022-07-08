@@ -10,6 +10,7 @@ const FilmDetail = (id) => {
   const { film } = useSelector((state) => state.details);
   const { people } = useSelector((state) => state.people);
   const { vehicles } = useSelector((state) => state.vehicles);
+
   return (
     <>
       <Container>
@@ -17,13 +18,7 @@ const FilmDetail = (id) => {
           <h1 className="m-4">{film.title}</h1>
         </div>
         <Row>
-          <Card
-            style={{ width: "100%" }}
-            key={film.episode_id}
-            className="m-3 bg-dark"
-            text="white"
-            id={film.episode_id}
-          >
+          <Card style={{ width: "100%" }} className="m-3 bg-dark" text="white">
             <Card.Body>
               <Card.Title>Title: {film.title}</Card.Title>
               <Card.Text>Release Date: {film.release_date}</Card.Text>
@@ -47,7 +42,7 @@ const FilmDetail = (id) => {
               </Card.Title>
               <Card.Title>
                 <Link
-                  to={"/people/"}
+                  to={"/vehicle/"}
                   style={{ textDecoration: "none", color: "#42ba96" }}
                 >
                   <h5>Vehicles: </h5>

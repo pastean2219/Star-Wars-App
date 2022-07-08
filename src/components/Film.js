@@ -27,19 +27,20 @@ const Film = ({ title, released, director, id }) => {
 
   return (
     <>
-      <Card
-        style={{ width: "25rem" }}
-        className="m-3 bg-dark"
-        text="white"
-        onClick={loadDetailHandler}
-      >
-        <Card.Body onClick={loadPeopleDetailHandler}>
+      <Card style={{ width: "25rem" }} className="m-3 bg-dark" text="white">
+        <Card.Body
+          onClick={() => {
+            loadPeopleDetailHandler();
+            loadDetailHandler();
+            loadCharactersDetails();
+            loadVehicleHandler();
+          }}
+        >
           <Link
             to={`/films/${id}`}
             style={{ textDecoration: "none", color: "#42ba96" }}
-            onClick={loadVehicleHandler}
           >
-            <Card.Title onClick={loadCharactersDetails}>{title}</Card.Title>
+            <Card.Title>{title}</Card.Title>
           </Link>
           <Card.Text>Release Date: {released}</Card.Text>
           <Card.Text>Director: {director}</Card.Text>
